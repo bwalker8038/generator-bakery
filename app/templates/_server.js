@@ -20,6 +20,6 @@ exports.start = function() {
   });
 
   app.start(function() {
-    console.log('Hapi server listening on port ' + port);
+    console.log('Hapi server listening on port ' + config.port);
   });
 };
