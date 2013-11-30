@@ -1,16 +1,14 @@
-# Column
+# bakery
 
-A generator for [Yeoman](http://yeoman.io) designed to knock down everything standing between you and that next kick-ass prototype.
+Bakery is a [Yeoman](http://yeoman.io) generator that creates scaffolds a Hapi application. Bakery is a fork of [generator-column](https://github.com/mattcreager/generator-column).
 
-#### Thats a big job, so we bring out the big hipster guns:
-
--  [Node.js](http://nodejs.org/) Oorah
--  [Express](http://expressjs.com/) a compact web application framework
--  [Swig](http://paularmstrong.github.io/swig/) a templating engine with that new car smell
--  [Bower](http://bower.io/) for client side dependency management
--  [Grunt](http://gruntjs.com/) to automate the monotonous stuff better left to robots
--  [Bootstrap](http://getbootstrap.com/) because icons and stuff are hard right?
--  [GoInstant](http://goinstant.com) instant real-time multi-user magic sauce
+#### What's included
+- [Node.js](http://nodejs.org/)
+- [Hapi](http://spumko.github.io) A server framework for Node.js \*from Spümko
+- [Jade](http://jade-lang.com) A node templating language
+- [Bower](http://bower.io) A client-side NPM
+- [Grunt](http://gruntjs.com) Codekit on steroids
+- [Sass](http://sass-lang.com) A CSS pre-processor
 
 ## Getting Started
 
@@ -23,13 +21,11 @@ $ npm install -g yo
 Yeoman has plug-ins, those are managed by npm too:
 
 ```
-$ npm install -g generator-column
+$ npm install -g generator-bakery
 ```
 
-Now, your going to want to find a new home for your project and initiate the generator, you'll want to have your GoInstant account name and application name nearby, if you haven't registered for those yet [you can do that here](https://goinstant.com/signup):
-
 ```
-$ yo column
+$ yo bakery
 ```
 
 Ok, so we have an application, lets fire it up.  Grunt will run browserify and lint your scripts whenever they change, if your using chrome your web application will also live reload.

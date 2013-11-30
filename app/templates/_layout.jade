@@ -1,0 +1,15 @@
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, user-scalable=no")
+    title= title
+
+    // Stylesheets, Scripts
+    include includes/head
+  body
+    div(class="wrapper", role="main")
+      block content
+
+      // Scripts
+      include includes/end
+  

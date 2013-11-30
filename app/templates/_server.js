@@ -1,25 +1,26 @@
 
 /** Module dependencies */
 
-var express = require('express');
-var _ = require('lodash');
+var hapi = require('hapi');
+var config = require('./config');
 
-var app = express();
 
 exports.start = function() {
-  require('./config').load(app);
+  var port = process.env.port || 3030;
+  var app = new Hapi.Server('localhost', config.port, config.app);
 
-  _.map([
+  // Routing Table
+  var routes = [
+    'static',
     'home'
-  //'anotherController'
-  ], function (controllerName) {
-    var controller = require('./controllers/' + controllerName);
+  ];
+
+  routes.map(function(name) {
+    var controller = require('./controllers/' + name);
     controller.setup(app);
   });
 
-  require('http')
-    .createServer(app)
-    .listen(app.get('port'), function() {
-      console.log('Express server listening on port ' + app.get('port'));
-    });
+  app.start(function() {
+    console.log('Hapi server listening on port ' + port);
+  });
 };

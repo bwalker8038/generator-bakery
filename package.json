@@ -1,21 +1,21 @@
 {
-  "name": "generator-column",
-  "version": "0.0.0",
-  "description": "A generator for Yeoman",
+  "name": "generator-bakery",
+  "version": "0.1.0",
+  "description": "A hapi generator for Yeoman",
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator", "hapi generator", "scaffolding"
   ],
-  "homepage": "https://github.com/mattcreager/generator-column",
-  "bugs": "https://github.com/mattcreager/generator-column/issues",
+  "homepage": "https://github.com/bwalker8038/generator-bakery",
+  "bugs": "https://github.com/bwalker8038/generator-bakery/issues",
   "author": {
-    "name": "Matthew Creager",
-    "email": "mattcreager@goinstant.com",
-    "url": "https://github.com/mattcreager"
+    "name": "brad",
+    "email": "brad@bradww.com ",
+    "url": "http://bradww.com"
   },
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mattcreager/generator-column.git"
+    "url": "git://github.com/brad/generator-bakery.git"
   },
   "scripts": {
     "test": "mocha"
