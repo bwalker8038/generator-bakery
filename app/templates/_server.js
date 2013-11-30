@@ -6,8 +6,7 @@ var config = require('./config');
 
 
 exports.start = function() {
-  var port = process.env.port || 3030;
-  var app = new Hapi.Server('localhost', config.port, config.app);
+  var app = new hapi.Server('localhost', config.port, config.app);
 
   // Routing Table
   var routes = [
