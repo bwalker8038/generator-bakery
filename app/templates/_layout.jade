@@ -4,12 +4,8 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, user-scalable=no")
     title= title
 
-    // Stylesheets, Scripts
-    include includes/head
   body
     div(class="wrapper", role="main")
       block content
 
-      // Scripts
-      include includes/end
-  
+      script(type="text/javascript", src="/javascript/app.js")
