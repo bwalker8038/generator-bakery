@@ -10,7 +10,7 @@ module.exports = function(grunt) {
     },
     concurrent: {
       start: {
-        tasks: ['nodemon', 'watch'],
+        tasks: ['nodemon', 'watch', 'sass'],
         options: {
           logConcurrentOutput: true
         }
@@ -22,11 +22,11 @@ module.exports = function(grunt) {
         dateFormat: function(time) {
           grunt.log.writeln('The watch finished in ' + time + 'ms at' + (new Date()).toString());
           grunt.log.writeln('Waiting for more changes...');
-        },
+        }
       },
       scripts: {
-        files: ['public/scripts/*.js'],
-        tasks: ['browserify'],
+        files: ['public/scripts/*.js', 'scss/*.scss'],
+        tasks: ['browserify', 'sass'],
         options: {
           debounceDelay: 250
         }
@@ -43,6 +43,17 @@ module.exports = function(grunt) {
         }
       }
     },
+    sass: {
+      dist: {
+        files: [{
+          expand: true,
+          cwd: 'scss',
+          src: ['*.scss'],
+          dest: 'public/stylesheets',
+          ext: '.css'
+        }]
+      }
+    },
     browserify: {
       basic: {
         src: ['public/scripts/main.js'],
@@ -52,10 +63,11 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-concurrent');
   grunt.loadNpmTasks('grunt-browserify');
 
-  grunt.registerTask('default', ['browserify', 'concurrent']);
+  grunt.registerTask('default', ['browserify', 'concurrent', 'sass']);
 };
