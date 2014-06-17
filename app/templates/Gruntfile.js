@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(grunt) {
+module.exports = function ( grunt ) {
 
   // Project configuration.
   grunt.initConfig({
@@ -8,6 +8,7 @@ module.exports = function(grunt) {
     jshint: {
       files: ['app/**/*.js', 'public/scripts/**/*.js']
     },
+
     concurrent: {
       start: {
         tasks: ['nodemon', 'watch', 'sass'],
@@ -16,6 +17,7 @@ module.exports = function(grunt) {
         }
       }
     },
+
     watch: {
       options: {
         livereload: true,
@@ -26,7 +28,7 @@ module.exports = function(grunt) {
       },
       scripts: {
         files: ['public/scripts/*.js', 'scss/*.scss'],
-        tasks: ['browserify', 'sass'],
+        tasks: ['browserify', 'sass', 'uglify'],
         options: {
           debounceDelay: 250
         }
@@ -35,14 +37,25 @@ module.exports = function(grunt) {
         files: ['public/images/*', 'public/stylesheets/*', 'app/views/*']
       }
     },
+
     nodemon: {
       dev: {
+        script: ['app.js'],
         options: {
-          file: 'app.js',
-          nodeArgs: ['--debug']
+          env: {
+            NODE_ENV: 'dev',
+            PORT: 8080
+          },
+
+          cwd: __dirname,
+          nodeArgs: ['--debug'],
+          ignore: ['*.log'],
+          delay: 1000,
+          legacyWatch: true
         }
       }
     },
+
     sass: {
       dist: {
         files: [{
@@ -54,10 +67,15 @@ module.exports = function(grunt) {
         }]
       }
     },
+
     browserify: {
+      options: {
+        transform: ['minifyify'],
+        debug: true
+      },
       basic: {
-        src: ['public/scripts/main.js'],
-        dest: 'public/build/build.js'
+        src: ['public/scripts/app.js'],
+        dest: 'public/scripts/app.min.js'
       }
     }
   });
