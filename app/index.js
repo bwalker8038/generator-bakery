@@ -31,7 +31,20 @@ bakeryGenerator.prototype.askFor = function askFor() {
       name: 'appName',
       message: 'What should we name our App?',
       require: true
-    }
+    },
+    {
+      name: 'cacheModule',
+      type: 'list',
+      message: 'What catbox strategy should we use?',
+      require: true,
+      choices: [
+        'catbox-memory',
+        'catbox-mongodb',
+        'catbox-redis',
+        'catbox-memcached',
+        'catbox-riak'
+      ]
+    },
   ];
 
   this.prompt(prompts, function (props) {

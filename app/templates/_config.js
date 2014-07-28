@@ -4,7 +4,7 @@ var config = {
 
   app: {
     cache: {
-      engine: require('catbox-memory');
+      engine: require("<%= _.slugify(cacheModule) %>")
     },
 
     // Currently set to debug all errors, change if needed
