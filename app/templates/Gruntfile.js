@@ -28,10 +28,14 @@ module.exports = function ( grunt ) {
       },
       scripts: {
         files: ['public/scripts/*.js', 'scss/*.scss'],
-        tasks: ['browserify', 'sass', 'uglify'],
+        tasks: ['browserify', 'uglify'],
         options: {
           debounceDelay: 250
         }
+      },
+      css: {
+        files: ['source/scss/*'],
+        tasks: ['sass']
       },
       layout: {
         files: ['public/images/*', 'public/stylesheets/*', 'app/views/*']
@@ -70,12 +74,19 @@ module.exports = function ( grunt ) {
 
     browserify: {
       options: {
-        transform: ['minifyify'],
         debug: true
       },
       basic: {
         src: ['public/scripts/app.js'],
         dest: 'public/scripts/app.min.js'
+      }
+    },
+
+    uglify: {
+      my_target: {
+        files: {
+          'public/build/app.js': ['public/scripts/app.js']
+        }
       }
     }
   });

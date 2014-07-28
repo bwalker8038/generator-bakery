@@ -4,15 +4,17 @@ var config = {
 
   app: {
     cache: {
-      engine: 'catbox-memory'
+      engine: require('catbox-memory');
     },
 
     // Currently set to debug all errors, change if needed
-    debug: ['errors'],
+    debug: {
+      request: ['error'],
+    },
 
     views: {
       path: __dirname + '/views',
-      engines: { jade: 'jade' },
+      engines: { jade: require('jade') },
       compileOptions: { pretty: true }
     }
   },

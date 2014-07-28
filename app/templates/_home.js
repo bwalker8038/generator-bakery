@@ -10,8 +10,8 @@ function HomeController() {
   console.log('home controller initialized');
 }
 
-HomeController.prototype.index = function (req) {
-  req.reply.view('home', {
+HomeController.prototype.index = function ( req, reply ) {
+  reply.view('home', {
     title: 'hello world!',
     message: 'Up and running with Yeoman and Hapi'
   });
